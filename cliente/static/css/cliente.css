@@ -1,3 +1,5 @@
+/* Estilo que envolve todas as páginas */
+
 html, body {
     margin: 0;
 	padding: 0;
@@ -6,15 +8,11 @@ html, body {
     font-family: 'Montserrat', sans-serif;
 }
 
-tr, h1, h2, a, a:active, ul, .text-muted, label {
+a, a:active {
     text-decoration: none !important; 
 }
 
-.page-header {
-    background-color: #06c0c7;
-    margin-top: 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
-}
+/* Configuração no grid do conteúdo das páginas */
 
 #wrapper{
 	min-height: 100%;
@@ -24,6 +22,16 @@ tr, h1, h2, a, a:active, ul, .text-muted, label {
 .container{
     padding-bottom: 10px;
 }
+
+/* Navbar do template base.html */
+
+.page-header {
+    background-color: #06c0c7;
+    margin-top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   
+}
+
+/* Estilo do footer */
 
 .footer {
     background-color: #06c0c7;
@@ -35,9 +43,13 @@ tr, h1, h2, a, a:active, ul, .text-muted, label {
 	left: 0;
 }
 
+/* Estilo da tabela de listagem dos clientes */
+
 .img-cliente{
     margin-right: 8px;
 }
+
+/* Estilo do formulário de cliente */
 
 .post-form textarea, .post-form select, .post-form input{
     width: 100%;

@@ -1,11 +1,14 @@
+{% comment %} Estender layout do template base {% endcomment %}
 {% extends 'cliente/base.html' %}
 
+{% comment %} Importação da tag de formatação do formulário django {% endcomment %}
 {% load crispy_forms_tags %}
 
 {% block title %}Cadastrar Clientes{% endblock %}
 
 {% block content %}
 
+{% comment %} Código do formulário de cadastro do cliente {% endcomment %}
 <div class="container mt-4">
     <div class="row align-items-end">
         <h2 class="mt-4">Cadastrar Cliente</h2>

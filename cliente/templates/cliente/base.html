@@ -23,6 +23,7 @@
 
 </head>
 <body>
+    {% comment %} Navbar das páginas {% endcomment %}
     <nav class="navbar navbar-expand-lg navbar-light page-header">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,10 +67,12 @@
         </div>
     </nav>
 
+    {% comment %} Estrutura para o conteúdo que vai nos templates {% endcomment %}
     <div id="wrapper">
         {% block content %}
         {% endblock %}
-        
+
+    {% comment %} Footer base das páginas {% endcomment %}
         <footer class="footer mt-4 py-3">
             <div class="container">
                 <a>© 2021, Venda de Imóveis. Todos os Direitos Reservados</a>

@@ -1,5 +1,6 @@
 from django.db import models
 
+# Model com dados do cliente
 class Cliente(models.Model):
     nome = models.CharField(max_length=60, null = True)
     cpf = models.CharField(max_length=30)
