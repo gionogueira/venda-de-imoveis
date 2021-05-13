@@ -1,0 +1,20 @@
+{% extends 'cliente/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastrar Clientes{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row align-items-end">
+        <h2 class="mt-4">Cadastrar Cliente</h2>
+        <div class="dropdown-divider"></div>
+        <form method="post" class="post-form">
+            {% csrf_token %}
+            {{ form|crispy}}
+            <button class="button-save btn btn-dark" type="submit">Salvar</button>
+        </form>
+</div>  
+
+{% endblock %}

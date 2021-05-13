@@ -1,0 +1,20 @@
+{% extends 'cliente/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Excluir Cliente{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row align-items-end">
+        <h2 class="mt-4">Excluir Cliente</h2>
+        <div class="dropdown-divider"></div>
+        <form method="post">{% csrf_token %}
+            <p>Tem certeza que quer deletar "{{ object }}"?</p>
+            <button class="btn btn-dark" type="submit">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
