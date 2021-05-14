@@ -1,0 +1,63 @@
+{% extends 'cliente/base.html' %}
+{% comment %} Estender layout do template base {% endcomment %}
+
+{% block title %}Resumo da Venda{% endblock %}
+
+{% comment %} Importação da tag de formatação do formulário django {% endcomment %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% comment %} Código da tabela de resumo da venda do imóvel {% endcomment %}
+<div class="container mt-4">
+    <div class="row align-items-end">
+        <h2 class="mt-4">Resumo da Venda</h2>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-5">
+            <figure class="figure">
+                <img src="/media/default-home.jpg" class="figure-img img-fluid rounded" alt="...">
+            </figure>
+        </div>
+        <div class="col-5">
+            <div class="p-3 bg-body rounded shadow-sm">
+                <h3 class="border-bottom pb-2 mb-0">Resumo</h3>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-house-user fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-2">
+                        <strong class="d-block text-gray-dark">Imóvel</strong>
+                        {{venda.imovel}}
+                    </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-cash-register fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-3">
+                        <strong class="d-block text-gray-dark">Forma de Pagamento</strong>
+                        {{venda.get_pagamento_display }}
+                    </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-user fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-3">
+                        <strong class="d-block text-gray-dark">Cliente</strong>
+                        {{venda.cliente}}
+                    </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-user-tie fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-3">
+                        <strong class="d-block text-gray-dark">Corretor</strong>
+                        {{venda.corretor}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}

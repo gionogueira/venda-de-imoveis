@@ -18,10 +18,12 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-# Rotas do admin e da app de cliente 
+# Rotas do admin, da app de cliente, da app de venda e autenticação 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('cliente.urls')),
+    path('admin/', admin.site.urls),
+    path('', include('venda.urls')),
+    path('account/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

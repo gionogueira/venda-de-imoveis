@@ -1,0 +1,106 @@
+{% extends 'cliente/base.html' %}
+{% comment %} Estender layout do template base {% endcomment %}
+
+{% block title %}Simulação de Imóveis{% endblock %}
+
+{% comment %} Importação da tag de formatação do formulário django {% endcomment %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% comment %} Código da tela de simulaçao da venda {% endcomment %}
+<div class="container mt-4">
+    <div class="row align-items-end">
+        <h2 class="mt-4">Simulação de Pagamento</h2>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="row mt-4">
+        <div class="col-4">
+            <figure class="figure">
+                <img src="/media/default-home.jpg" class="figure-img img-fluid rounded" alt="...">
+            </figure>
+        </div>
+        <div class="col-4">
+            <div class="p-3 bg-body rounded shadow-sm">
+                <h3 class="border-bottom pb-2 mb-0">Detalhes</h3>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-house-user fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-2">
+                        <strong class="d-block text-gray-dark">Imóvel</strong>
+                        {{imovel}}
+                    </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-dollar-sign fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-3">
+                        <strong class="d-block text-gray-dark">Valor</strong>
+                        {{imovel.valor}}
+                    </p>
+                </div>
+                <div class="d-flex text-muted pt-3">
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+
+                    <p class="pb-3 mb-0 small lh-sm border-bottom ms-3">
+                        <strong class="d-block text-gray-dark">Localização</strong>
+                        {{imovel.localizacao}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-4">
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+            {% csrf_token %}
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                        <h6 class="my-0">Comissão</h6>
+                        <small class="text-muted">Corretor</small>
+                        </div>
+                        <span class="text-muted">5%</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                        <h6 class="my-0">Forma de Pagamento</h6>
+                        <small class="text-muted">À vista ou Parcelado</small>
+                        </div>
+                        <div class="form-group">
+                            {{ form.pagamento|as_crispy_field }}
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                        <h6 class="my-0">Cliente</h6>
+                        <small class="text-muted">Comprador</small>
+                        </div>
+                        <div class="form-group ms-4 w-50">
+                            {{ form.cliente|as_crispy_field }}
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Imóvel</h6>
+                            <small class="text-muted">Apartamento ou Lote</small>
+                        </div>
+                        <div class="form-group">
+                            {{ form.imovel|as_crispy_field }}
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Corretor</span>
+                        <div class="form-group ms-4 w-50">
+                            {{ form.corretor|as_crispy_field }}
+                        </div>
+                    </li>
+                    <li class="list-group-item mt-0">
+                        <button class="button-save btn btn-dark" type="submit">Salvar</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'cliente/base.html' %}
+{% comment %} Estender layout do template base {% endcomment %}
+
+{% block title %}Venda de Imóveis{% endblock %}
+
+{% block content %}
+
+{% comment %} Código da tabela de listagem de imóveis {% endcomment %}
+<div class="container mt-4">
+    <div class="row align-items-end">
+        <div class="col-4">
+            <h2 class="mt-4">Venda de Imóveis</h2>
+        </div>
+        <div class="col-3">
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <table class="table align-middle mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Imóvel</th>
+                <th scope="col">Localização</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Comissão</th>
+                <th scope="col">Pagamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for imoveis in imovel %}
+                <tr>
+                    <th scope="row">{{ imoveis.imovel }}</th>
+                    <td>{{ imoveis.localizacao }}</td>
+                    <td>{{ imoveis.valor }}</td>
+                    <td>Comissão de 5%</td>
+                    <td>
+                        <a href="{% url 'simulacao' imoveis.id %}"><button class="btn btn-dark">Simulação</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  
+
+{% endblock %}

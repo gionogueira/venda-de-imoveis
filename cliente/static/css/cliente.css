@@ -76,6 +76,13 @@ textarea{
     height: 50px !important;
 }
 
+select{
+    box-sizing: border-box !important;
+    border: none !important;
+    border-bottom: 2px solid #056b6e !important;
+    height: 50px !important;
+}
+
 select:focus,
 select.form-control:focus,
 textarea:focus, 
